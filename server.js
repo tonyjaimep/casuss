@@ -53,12 +53,14 @@ const usersRouter = require('./routes/users');
 const ordersRouter = require('./routes/orders');
 // const vendorsRouter = require('./routes/vendors');
 const authRouter = require('./routes/auth');
+const shippingOptionsRouter = require('./routes/shippingOptions');
 
 app.use('/books', booksRouter);
 app.use('/users', usersRouter);
 app.use('/orders', ordersRouter);
 // app.use('/vendors', vendorsRouter);
 app.use('/auth', authRouter);
+app.use('/shipping-options', shippingOptionsRouter);
 
 app.listen(port, () => {
 	console.log(`Server is running on port: ${port}`);

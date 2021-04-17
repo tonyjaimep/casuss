@@ -1,24 +1,30 @@
 const mongoose = require('mongoose')
 
 const orderSchema = mongoose.Schema({
-	user: {
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'User'
-	},
-	books: [{
-		book: {
-			type: mongoose.Schema.Types.ObjectId,
-			ref: 'Book'
-		},
-		quantity: {
-			type: Number
-		}
-	}],
-	fragmented: Boolean,
-	status: { type: String, required: true, default: "Orden pendiente" },
-	total: { type: Number, required: true }
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
+  books: [{
+    book: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Book'
+    },
+    quantity: {
+      type: Number
+    }
+  }],
+  fragmented: Boolean,
+  shippingOption: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'ShippingOption',
+    required: false
+  },
+  status: { type: String, required: true, default: "Orden pendiente" },
+  total: { type: Number, required: true }
 }, {
-	timestamps: true
+  timestamps: true
 });
 
 const Order = mongoose.model('Order', orderSchema);
