@@ -67,3 +67,7 @@ export const createOrder = values => {
 export const fetchOrders = () => {
   return api.get('/orders')
 }
+
+export const fetchAllOrders = () => {
+  return api.get('/orders/all')
+}

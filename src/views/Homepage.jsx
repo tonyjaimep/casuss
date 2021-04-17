@@ -4,7 +4,7 @@ import Input from '../components/Input.jsx'
 
 import { Search } from 'react-feather'
 
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import {
   Form,
@@ -34,6 +34,9 @@ const Homepage = () => {
           </div>
         </Form>
       </Formik>
+    </div>
+    <div className="container mt-48 text-right">
+      <Link to="/admin">Admin</Link>
     </div>
   </section>
 }

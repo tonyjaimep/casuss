@@ -10,6 +10,7 @@ import Homepage from './views/Homepage'
 import Search from './views/Search'
 import Book from './views/Book'
 import Profile from './views/Profile'
+import Admin from './views/Admin'
 
 import Login from './views/Login'
 import Register from './views/Register'
@@ -24,6 +25,7 @@ const App = () => {
       <Router>
         <Navigation/>
         <Switch>
+          <Route path="/admin/:action?" exact={true} component={Admin}/>
           <Route path="/profile/:action?" exact={true} component={Profile}/>
           <Route path="/register" component={Register}/>
           <Route path="/login" component={Login}/>
