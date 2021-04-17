@@ -45,7 +45,7 @@ export const getUser = () => {
 }
 
 // orders
-export const createOrder = (data) => {
+export const createOrder = values => {
   const data = new FormData()
 
   for (let key in values)

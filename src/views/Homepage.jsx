@@ -17,16 +17,13 @@ const Homepage = () => {
   const formikConfig = {
     initialValues: { query: "" },
     onSubmit: values => {
-      history.push({
-        pathname: '/search',
-        search: `?q=${values.query}`
-      })
+      history.push(`/search/${encodeURIComponent(values.query)}`)
     }
   }
 
   return <section>
     <div className="container">
-      <h1 className="text-4xl font-bold mb-4">Encuentro mis libros favoritos</h1>
+      <h1 className="text-6xl font-bold mb-8 font-serif text-center">Encuentro mis libros favoritos</h1>
       <Formik {...formikConfig}>
         <Form>
           <div className="relative">
