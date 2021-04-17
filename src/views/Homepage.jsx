@@ -23,7 +23,7 @@ const Homepage = () => {
 
   return <section>
     <div className="container">
-      <h1 className="text-6xl font-bold mb-8 font-serif text-center">Encuentro mis libros favoritos</h1>
+      <h1 className="text-6xl font-bold mb-8 font-serif text-center tracking-wide">Encuentro mis libros favoritos</h1>
       <Formik {...formikConfig}>
         <Form>
           <div className="relative">

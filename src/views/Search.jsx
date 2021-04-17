@@ -29,7 +29,7 @@ const Search = props => {
     <div className="container">
       { searching && "Buscando..." }
       { results.length > 0 &&
-        <h3 className="text-xl font-bold mb-4 font-serif">
+        <h3 className="text-xl font-bold mb-4 font-serif tracking-wide">
           Encontramos { results.length } resultado(s)
           { query &&
             <span> para tu búsqueda "{ decodedQuery }"</span>
