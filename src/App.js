@@ -10,9 +10,12 @@ import Homepage from './views/Homepage'
 import Search from './views/Search'
 import Book from './views/Book'
 
+import Navigation from './components/Navigation'
+
 const App = () => {
   return <main>
     <Router>
+      <Navigation/>
       <Switch>
         <Route path="/books/:id" component={Book}/>
         <Route path="/search/:query?" component={Search}/>

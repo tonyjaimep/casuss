@@ -22,7 +22,7 @@ const Homepage = () => {
   }
 
   return <section>
-    <div className="container">
+    <div className="container py-48">
       <h1 className="text-6xl font-bold mb-8 font-serif text-center tracking-wide">Encuentro mis libros favoritos</h1>
       <Formik {...formikConfig}>
         <Form>

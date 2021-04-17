@@ -30,7 +30,7 @@ const Search = props => {
       { searching && "Buscando..." }
       { results.length > 0 &&
         <h3 className="text-xl font-bold mb-4 font-serif tracking-wide">
-          Encontramos { results.length } resultado(s)
+          Se encontraron { results.length } resultado(s)
           { query &&
             <span> para tu búsqueda "{ decodedQuery }"</span>
           }
