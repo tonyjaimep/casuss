@@ -15,22 +15,12 @@ export const fetchBook = (bookId) => {
   return api.get(`/books/${bookId}`)
 }
 
-export const createBook = (bookId, values) => {
-  const data = new FormData()
-
-  for (let key in values)
-    data.append(key, values[key])
-
-  return api.post('/books', data)
+export const createBook = values => {
+  return api.post('/books', values)
 }
 
 export const updateBook = (bookId, values) => {
-  const data = new FormData()
-
-  for (let key in values)
-    data.append(key, values[key])
-
-  return api.post(`/books/${bookId}`, data)
+  return api.post(`/books/${bookId}`, values)
 }
 
 export const deleteBook = (bookId, values) => {
