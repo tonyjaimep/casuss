@@ -46,12 +46,11 @@ export const getUser = () => {
 
 // orders
 export const createOrder = values => {
-  const data = new FormData()
+  return api.post('/orders', values)
+}
 
-  for (let key in values)
-    data.append(key, values[key])
-
-  return api.post('/orders')
+export const updateOrder = (id, values) => {
+  return api.post(`/orders/${id}`, values)
 }
 
 export const fetchOrders = () => {
@@ -60,4 +59,16 @@ export const fetchOrders = () => {
 
 export const fetchAllOrders = () => {
   return api.get('/orders/all')
+}
+
+export const fetchShippingOptions = () => {
+  return api.get('/shipping-options')
+}
+
+export const createShippingOption = values => {
+  return api.post('/shipping-options', values)
+}
+
+export const updateShippingOption = (id, values) => {
+  return api.post(`/shipping-options/${id}`, values)
 }

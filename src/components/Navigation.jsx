@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 
-import { BookOpen, User } from 'react-feather'
+import { BookOpen, User, ShoppingCart } from 'react-feather'
 
 import { useUser }from '../contexts/UserContext'
 
@@ -16,6 +16,9 @@ const Navigation = () => {
         Casuss
       </Link>
       <div className="flex gap-4">
+        <Link to="/cart" className="p-4">
+          <ShoppingCart size="1em" className="inline align-middle" fill="currentColor"/>
+        </Link>
         { userContext.state ? 
           <Link to="/profile" className="p-4">
             <User size="1em" className="inline mr-2" fill="currentColor" stroke="none"/>
