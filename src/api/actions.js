@@ -9,13 +9,22 @@ export const fetchBook = (bookId) => {
   return api.get(`/books/${bookId}`)
 }
 
+export const createBook = (bookId, values) => {
+  const data = new FormData()
+
+  for (let key in values)
+    data.append(key, values[key])
+
+  return api.post('/books', data)
+}
+
 export const updateBook = (bookId, values) => {
   const data = new FormData()
 
   for (let key in values)
     data.append(key, values[key])
 
-  return api.post(`/books/${bookId}`)
+  return api.post(`/books/${bookId}`, data)
 }
 
 export const deleteBook = (bookId, values) => {
@@ -33,4 +42,14 @@ export const logout = () => {
 
 export const getUser = () => {
   return api.get('/auth/user')
+}
+
+// orders
+export const createOrder = (data) => {
+  const data = new FormData()
+
+  for (let key in values)
+    data.append(key, values[key])
+
+  return api.post('/orders')
 }
