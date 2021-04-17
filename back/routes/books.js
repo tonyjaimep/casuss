@@ -4,9 +4,15 @@ const Book = require('../models/book.model')
 
 router.route('/')
 	.get((req, res) => {
-		Book.find()
-			.then(books => res.json(books))
-			.catch(err => res.status(400).json('Error: ' + err));
+    if (req.query.query) {
+      Book.fuzzySearch(req.query.query)
+        .then(books => res.json(books))
+        .catch(err => res.status(400).json('Error: ' + err));
+    } else {
+      Book.find()
+        .then(books => res.json(books))
+        .catch(err => res.status(400).json('Error: ' + err));
+    }
 	})
 	.post((req, res) => {
 		const { title, isbn, author, description, stock, unitPrice } = req.body;
@@ -43,5 +49,12 @@ router.route('/:id')
 			})
 			.catch(err => res.status(400).json('Error: ' + err))
 	});
+
+router.route('/like/:id')
+	.get((req, res) => {
+    Book.find({ _id: { $ne: req.params.id } })
+			.then(book => res.json(book))
+			.catch(err => res.status(400).json('Error: ' + err))
+	})
 
 module.exports = router

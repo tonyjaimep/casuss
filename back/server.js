@@ -11,7 +11,12 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // middleware
-app.use(cors());
+app.use(cors({
+  origin: true,
+  optionsSuccessStatus: 200,
+  credentials: true,
+}));
+
 app.use(express.json());
 
 app.use(session({
@@ -24,7 +29,18 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect(process.env.ATLAS_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.Promise = global.Promise;
+
+mongoose.connect(
+  process.env.ATLAS_URI,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true
+  }
+);
+
 const connection = mongoose.connection;
 
 connection.once('open', () => {

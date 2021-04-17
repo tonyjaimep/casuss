@@ -17,7 +17,7 @@ const Book = ({ book }) => {
     </h5>
     <Link to={`/books/${book._id}`} className="p-4 bg-black text-white block mt-4 flex justify-between items-center">
       Ver
-      <ChevronRight size="1em" class/>
+      <ChevronRight size="1em"/>
     </Link>
   </article>
 }

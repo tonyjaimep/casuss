@@ -1,8 +1,14 @@
 import api from './instance'
 
 // books
-export const fetchBooks = () => {
-  return api.get('/books/')
+export const fetchBooks = (query) => {
+  return api.get('/books/', {
+    params: { query }
+  })
+}
+
+export const fetchSimilarBooks = bookId => {
+  return api.get(`/books/like/${bookId}`)
 }
 
 export const fetchBook = (bookId) => {
@@ -32,6 +38,10 @@ export const deleteBook = (bookId, values) => {
 }
 
 // authentication
+export const register = params => {
+  return api.post('/users/add', params)
+}
+
 export const login = params => {
   return api.post('/auth/login', params)
 }
@@ -52,4 +62,8 @@ export const createOrder = values => {
     data.append(key, values[key])
 
   return api.post('/orders')
+}
+
+export const fetchOrders = () => {
+  return api.get('/orders')
 }

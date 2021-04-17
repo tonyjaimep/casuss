@@ -9,19 +9,30 @@ import {
 import Homepage from './views/Homepage'
 import Search from './views/Search'
 import Book from './views/Book'
+import Profile from './views/Profile'
+
+import Login from './views/Login'
+import Register from './views/Register'
 
 import Navigation from './components/Navigation'
 
+import { UserProvider } from './contexts/UserContext'
+
 const App = () => {
   return <main>
-    <Router>
-      <Navigation/>
-      <Switch>
-        <Route path="/books/:id" component={Book}/>
-        <Route path="/search/:query?" component={Search}/>
-        <Route path="/" exact={true} component={Homepage}/>
-      </Switch>
-    </Router>
+    <UserProvider>
+      <Router>
+        <Navigation/>
+        <Switch>
+          <Route path="/profile/:action?" exact={true} component={Profile}/>
+          <Route path="/register" component={Register}/>
+          <Route path="/login" component={Login}/>
+          <Route path="/books/:id" component={Book}/>
+          <Route path="/search/:query?" component={Search}/>
+          <Route path="/" exact={true} component={Homepage}/>
+        </Switch>
+      </Router>
+    </UserProvider>
   </main>
 }
 
